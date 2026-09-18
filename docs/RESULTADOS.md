@@ -71,4 +71,4 @@ Eventos registrados:
 
 Executar `python3 scripts/experiments.py` e `python3 scripts/summarize.py`. CSV bruto, logs e environment.json estão na pasta da campanha. Scripts de documentos e compilação LaTeX podem ser executados depois para atualizar os PDFs.
 
-Testes demonstram falha de processo e recuperação no mesmo host. Não foram testados Docker, máquinas remotas, falha total do host, queda do cliente ou split-brain. O exemplo assume entrada imutável e conhecida.
+Testes demonstram falha de processo e recuperação no mesmo host. Não foram testados máquinas remotas, falha total do host, queda do cliente ou split-brain. O exemplo assume entrada imutável e conhecida.

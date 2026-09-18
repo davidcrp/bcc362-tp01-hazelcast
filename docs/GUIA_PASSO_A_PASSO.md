@@ -10,7 +10,7 @@ javac -version
 python3 --version
 ```
 
-Se os comandos funcionarem, avance ao passo 2. Maven, Docker e conta de nuvem não são necessários.
+Se os comandos funcionarem, avance ao passo 2. Maven e conta de nuvem não são necessários.
 
 Se não tiver Ubuntu, abra **PowerShell como administrador** e execute:
 
@@ -199,28 +199,7 @@ pdflatex -interaction=nonstopmode -halt-on-error apresentacao.tex
 
 A compilação da entrega utilizou o Tectonic já disponível no plugin; não foi necessário instalar uma distribuição TeX completa. As notas de fala aparecem como `\note{...}` no fonte e no roteiro de estudo. O PDF padrão mostra somente os slides.
 
-## 10. Alternativas opcionais
-
-**Docker:** arquivos preparados, não testados porque Docker não estava disponível. Instale Docker Desktop seguindo https://docs.docker.com/desktop/setup/install/windows-install/ e habilite a integração WSL. Depois:
-
-```bash
-docker compose build
-docker compose up -d member1 member2 member3
-docker compose run --rm client pronto 3
-docker compose run --rm client carregar 100000
-docker compose run --rm client acompanhar 100000
-```
-
-Em outro terminal, para a falha e expansão:
-
-```bash
-docker compose kill -s SIGKILL member3
-docker compose run --rm client pronto 2
-docker compose --profile expansion up -d member4
-docker compose run --rm client pronto 3
-```
-
-Encerrar: `docker compose --profile expansion --profile tools down`. Os nomes dos serviços Docker são `member1` etc.; o comando Java está em português. Compose aqui usa um host e não equivale a um cluster de máquinas com Kubernetes/Swarm.
+## 10. Máquinas Linux distintas (opcional)
 
 **Máquinas Linux distintas:** copie a pasta para três máquinas na mesma rede privada, instale Java 17 e compile em cada uma. Defina as mesmas seeds e nome de cluster em todos os terminais (substitua os endereços de exemplo):
 

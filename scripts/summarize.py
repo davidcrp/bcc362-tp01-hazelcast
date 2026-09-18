@@ -23,7 +23,7 @@ for e in json.loads((p/'events.json').read_text()):
 s+=['','## Partições antes e depois','']
 for fn in ['17-estado.log','19-estado.log','21-estado.log']:
  s+=['```text',fn,*[x for x in (p/fn).read_text().splitlines() if 'primarias=' in x],'```','']
-s+=['## Reprodução e limites','','Executar `python3 scripts/experiments.py` e `python3 scripts/summarize.py`. CSV bruto, logs e environment.json estão na pasta da campanha. Scripts de documentos e compilação LaTeX podem ser executados depois para atualizar os PDFs.','','Testes demonstram falha de processo e recuperação no mesmo host. Não foram testados Docker, máquinas remotas, falha total do host, queda do cliente ou split-brain. O exemplo assume entrada imutável e conhecida.']
+s+=['## Reprodução e limites','','Executar `python3 scripts/experiments.py` e `python3 scripts/summarize.py`. CSV bruto, logs e environment.json estão na pasta da campanha. Scripts de documentos e compilação LaTeX podem ser executados depois para atualizar os PDFs.','','Testes demonstram falha de processo e recuperação no mesmo host. Não foram testados máquinas remotas, falha total do host, queda do cliente ou split-brain. O exemplo assume entrada imutável e conhecida.']
 (ROOT/'docs/RESULTADOS.md').write_text('\n'.join(s)+'\n')
 tex=['% Gerado por scripts/summarize.py; valores medidos, em ms.',r'\begin{tabular}{rrrr}',r'\toprule',r'$N$ & 1 membro & 2 membros & 3 membros \\',r'\midrule']
 for n in [1000,10000,100000]:

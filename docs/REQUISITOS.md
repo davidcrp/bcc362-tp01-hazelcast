@@ -16,4 +16,4 @@
 | Item 5: responder questionários (~10 min) | Preparação com perguntas; questionário específico não incluído no enunciado |
 | Apresentação fundamental | Fonte LaTeX/Beamer + PDF + notas e roteiro |
 
-Consulte RESULTADOS.md para saber exatamente o que foi executado e aprovado. Resultados usam JVMs no mesmo host. Docker, máquinas remotas e falha completa de host não foram testados. Os integrantes ainda precisam se identificar, ensaiar e realizar a apresentação no workshop.
+Consulte RESULTADOS.md para saber exatamente o que foi executado e aprovado. Resultados usam JVMs no mesmo host. Máquinas remotas e falha completa de host não foram testadas. Os integrantes ainda precisam se identificar, ensaiar e realizar a apresentação no workshop.

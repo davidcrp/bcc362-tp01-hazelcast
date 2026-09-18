@@ -15,7 +15,7 @@ Exemplo: para N=10, o resultado é 55. Para N=100.000, é 5.000.050.000. Usamos 
 5. `slides/apresentacao.tex` e `slides/apresentacao.pdf`: apresentação feita em **LaTeX/Beamer**.
 6. `docs/RELATORIO.pdf`, `docs/RESULTADOS.md` e `docs/REQUISITOS.md`: fundamentação, evidências e requisitos.
 
-Não é necessário estudar automação de testes, Docker ou detalhes do compilador para entender o algoritmo. A documentação mostra quais trechos foram adaptados e quais são apenas infraestrutura.
+Não é necessário estudar automação de testes ou detalhes do compilador para entender o algoritmo. A documentação mostra quais trechos foram adaptados e quais são apenas infraestrutura.
 
 ## Executar os testes (Ubuntu/WSL)
 

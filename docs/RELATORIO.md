@@ -80,7 +80,7 @@ Aceleração S(p)=T(1)/T(p) compara a mesma entrada com um e p membros. Eficiên
 
 ## 7. Organização e apresentação
 
-SomaTask.java contém a tarefa; Cliente.java contém carga e redução, seguidas de comandos de apoio; Main.java configura os membros; EstadoTask.java consulta o estado do cluster. O guia explica a execução manual, a automação e o que fazer se precisar instalar Java/WSL. Docker e máquinas remotas são alternativas preparadas, não declaradas como executadas.
+SomaTask.java contém a tarefa; Cliente.java contém carga e redução, seguidas de comandos de apoio; Main.java configura os membros; EstadoTask.java consulta o estado do cluster. O guia explica a execução manual, a automação e o que fazer se precisar instalar Java/WSL. A execução em máquinas remotas é uma alternativa descrita no guia, não declarada como executada.
 
 Os slides foram refeitos em LaTeX/Beamer. Há fonte editável, PDF e notas de fala. A apresentação reserva cerca de cinco minutos para tecnologia, cinco para arquitetura e cinco para a aplicação/demonstração. Em seguida há dez minutos para perguntas. O questionário concreto não foi fornecido no PDF; as perguntas de preparação são apenas estudo.
 
