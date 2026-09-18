@@ -4,7 +4,7 @@ import subprocess,pathlib,os,time,json,datetime,platform
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'results'/datetime.datetime.now().strftime('%Y%m%d-%H%M%S');OUT.mkdir(parents=True)
 ENV=dict(os.environ,HZ_CLUSTER='soma-teste-'+str(os.getpid()),HZ_MEMBERS='127.0.0.1:5701,127.0.0.1:5702,127.0.0.1:5703,127.0.0.1:5704',HZ_BIND='127.0.0.1')
-JAVA=['java','-Xms128m','-Xmx768m','-XX:ActiveProcessorCount=2','-cp',str(ROOT/'build/tp01.jar')+os.pathsep+str(ROOT/'lib/*'),'br.edu.ufop.Main']
+JAVA=['java','-Xms128m','-Xmx768m','-XX:ActiveProcessorCount=2','-cp',str(ROOT/'build/tp01.jar')+os.pathsep+str(ROOT/'lib/*'),'Main']
 processes=[];handles=[];events=[];counter=0
 
 def event(kind,**kw):

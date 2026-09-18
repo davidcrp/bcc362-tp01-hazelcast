@@ -10,8 +10,8 @@ Exemplo: para N=10, o resultado é 55. Para N=100.000, é 5.000.050.000. Usamos 
 
 1. `docs/EXPLICACAO_DO_CODIGO.md`: explicação para quem está começando.
 2. `docs/GUIA_PASSO_A_PASSO.md` (também em PDF): como compilar, iniciar os membros e executar.
-3. `src/main/java/br/edu/ufop/SomaTask.java`: a tarefa de soma, com menos de 30 linhas.
-4. `src/main/java/br/edu/ufop/Cliente.java`: os métodos `carregar` e `somar` são o núcleo do cliente; os demais apenas apoiam testes/demonstração.
+3. `src/SomaTask.java`: a tarefa de soma, com menos de 30 linhas.
+4. `src/Cliente.java`: os métodos `carregar` e `somar` são o núcleo do cliente; os demais apenas apoiam testes/demonstração.
 5. `slides/apresentacao.tex` e `slides/apresentacao.pdf`: apresentação feita em **LaTeX/Beamer**.
 6. `docs/RELATORIO.pdf`, `docs/RESULTADOS.md` e `docs/REQUISITOS.md`: fundamentação, evidências e requisitos.
 

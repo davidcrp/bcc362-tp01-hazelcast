@@ -1,5 +1,3 @@
-package br.edu.ufop;
-
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.map.IMap;

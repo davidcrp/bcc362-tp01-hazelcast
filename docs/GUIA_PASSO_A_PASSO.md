@@ -121,7 +121,7 @@ O mesmo cliente fará até 60 rodadas, com uma pausa de dois segundos entre elas
 Em outro terminal Ubuntu:
 
 ```bash
-pgrep -af 'br.edu.ufop.Main membro 5703'
+pgrep -af 'Main membro 5703'
 ```
 
 Anote o PID da linha do processo Java correspondente e execute (substituindo o texto pelo número):

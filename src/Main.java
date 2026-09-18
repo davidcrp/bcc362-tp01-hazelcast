@@ -1,5 +1,3 @@
-package br.edu.ufop;
-
 import com.hazelcast.config.*;
 import com.hazelcast.core.*;
 import java.util.Arrays;

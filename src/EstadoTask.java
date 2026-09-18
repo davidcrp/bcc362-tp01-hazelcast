@@ -1,5 +1,3 @@
-package br.edu.ufop;
-
 import com.hazelcast.core.*;
 import java.io.Serializable;
 import java.util.concurrent.Callable;
