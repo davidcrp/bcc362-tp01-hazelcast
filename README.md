@@ -28,11 +28,6 @@ python3 scripts/summarize.py
 
 O guia contém os comandos para fazer a apresentação manualmente. Não rode a suíte automática enquanto houver membros manuais nas portas 5701–5704.
 
-## O que foi simplificado
-
-A versão anterior de contagem de palavras foi substituída: sem tokenização, blocos, janelas de tarefas, histogramas ou recuperação por bloco. Agora são três conceitos: **IMap**, **tarefa Callable** e **IExecutorService**. Em caso de falha, uma nova rodada refaz a soma inteira após a recuperação do cluster; isso é mostrado explicitamente, sem prometer execução exatamente uma vez.
-
-O arquivo anterior foi preservado em `../versoes-anteriores/TP01_WordCount.zip`. Os resultados antigos não são usados no trabalho novo.
 
 ## Entrega
 
@@ -48,6 +43,6 @@ cd bcc362-tp01-hazelcast
 bash scripts/build.sh
 ```
 
-Repositório privado: é necessário ter acesso à conta ou ser colaborador. Os caminhos pessoais dos exemplos do guia devem ser substituídos pela pasta em que você clonou o projeto.
+
 
 Acesso rápido: [guia](docs/GUIA_PASSO_A_PASSO.pdf), [explicação do código](docs/EXPLICACAO_DO_CODIGO.pdf), [slides PDF](slides/apresentacao.pdf), [fonte LaTeX](slides/apresentacao.tex), [relatório](docs/RELATORIO.pdf) e [enunciado](docs/ENUNCIADO_ORIGINAL.pdf).
