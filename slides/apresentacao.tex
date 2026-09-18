@@ -1,0 +1,230 @@
+% Fonte principal: compilar duas vezes com pdfLaTeX ou com Tectonic.
+% Envie tambem resultados.tex ao Overleaf. Preencha os integrantes abaixo.
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern,booktabs,listings,tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\definecolor{navy}{HTML}{10243A}
+\definecolor{teal}{HTML}{008C82}
+\definecolor{pale}{HTML}{EDF5F5}
+\definecolor{muted}{HTML}{536579}
+\setbeamercolor{normal text}{fg=navy,bg=white}
+\setbeamercolor{structure}{fg=teal}
+\setbeamercolor{frametitle}{fg=navy}
+\setbeamercolor{title}{fg=navy}
+\setbeamercolor{block title}{fg=white,bg=teal}
+\setbeamercolor{block body}{fg=navy,bg=pale}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{footline}{\hspace{0.45cm}\textcolor{muted}{\scriptsize UFOP \quad|\quad BCC362 \quad|\quad TP01 \quad|\quad Hazelcast}\hfill\textcolor{teal}{\scriptsize\insertframenumber/\inserttotalframenumber}\hspace{0.45cm}\vspace{0.2cm}}
+\setbeamersize{text margin left=0.7cm,text margin right=0.7cm}
+\lstset{language=Java,basicstyle=\ttfamily\small,keywordstyle=\color{teal}\bfseries,showstringspaces=false,breaklines=true,columns=fullflexible,backgroundcolor=\color{pale},frame=single,rulecolor=\color{pale}}
+\newcommand{\fonte}[1]{\par\vspace{0.15cm}{\tiny\color{muted}Fonte: #1}}
+\title{Primeiro contato com Hazelcast}
+\subtitle{Soma distribuída baseada em um exemplo oficial}
+\author{Integrantes: preencher nomes e matrículas}
+\institute{Universidade Federal de Ouro Preto\\BCC362 --- Sistemas Distribuídos}
+\date{Trabalho Prático 01}
+\begin{document}
+\begin{frame}
+\titlepage
+\note{30 s. Apresente o grupo e o objetivo: aprender com um exemplo básico do site do Hazelcast. São 5 min de tecnologia, 5 de arquitetura e 5 de aplicação, seguidos de 10 min de perguntas.}
+\end{frame}
+
+\begin{frame}{O que é Hazelcast?}
+\begin{block}{Ideia central}Compartilhar dados e executar tarefas em um conjunto de processos.\end{block}
+\begin{itemize}\setlength\itemsep{0.35cm}
+\item \textbf{IMap}: um mapa chave--valor distribuído.
+\item \textbf{IExecutorService}: envia tarefas para os membros.
+\item Usos: cache, sessões, contadores e estatísticas.
+\item Nosso ambiente: Java 17 e Hazelcast 5.6.0.
+\end{itemize}
+\fonte{Hazelcast: Java Executor Service e Making Your Map Data Safe.}
+\note{80 s. Explique mapa usando chave de produto e valor de estoque. A versão está fixada para reprodução, não é anunciada como a mais recente. Hazelcast aparece como framework no enunciado.}
+\end{frame}
+
+\begin{frame}{Quando usar e quais são os limites?}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}\begin{block}{Aplicações possíveis}
+\begin{itemize}\setlength\itemsep{0.3cm}
+\item Dados compartilhados em memória.
+\item Acesso de baixa latência.
+\item Agregação e processamento em vários membros.
+\end{itemize}\end{block}\end{column}
+\begin{column}{0.48\textwidth}\begin{block}{Custos e cuidados}
+\begin{itemize}\setlength\itemsep{0.3cm}
+\item RAM e comunicação têm custo.
+\item Backup em RAM não é persistência.
+\item Um cluster não é necessário para uma soma pequena.
+\end{itemize}\end{block}\end{column}
+\end{columns}
+\vspace{0.3cm}Nosso objetivo é aprender os conceitos com um algoritmo fácil de conferir.
+\note{70 s. O laboratório não tem autenticação/TLS, persistência ou proteção de split-brain. A fórmula seria mais eficiente para esta sequência; a implementação ensina distribuição.}
+\end{frame}
+
+\begin{frame}{Mercado e dimensão dos clusters}
+\begin{itemize}\setlength\itemsep{0.25cm}
+\item \textbf{British Gas/Hive}: caso de IoT com \textbf{20 nós}.
+\item \textbf{BNP Paribas Bank Polska}: caso bancário; fornecedor relata 84 mil requisições/s.
+\item \textbf{Benchmark Jet 4.3}: 45 nós EC2, 720 vCPUs; 1 bilhão de eventos/s e p99 de 26 ms.
+\end{itemize}
+\begin{alertblock}{Qual é a maior aplicação?}
+Não encontramos evidência para afirmar um recorde mundial.\\Benchmark não é aplicação comercial; nós não implicam máquinas físicas.
+\end{alertblock}
+\fonte{Casos e benchmark do fornecedor, links no relatório. Números históricos, não medidos pelo grupo.}
+\note{120 s. Atenda à pergunta do enunciado sem inventar recorde. Diferencie casos comerciais de benchmark histórico de Jet. Não transfira as métricas à nossa soma. Fecha os 5 minutos de tecnologia.}
+\end{frame}
+
+\begin{frame}{Cliente e membros: quem faz o quê?}
+\centering
+\begin{tikzpicture}[box/.style={draw=teal,rounded corners,fill=pale,align=center,minimum height=1cm,font=\small},>=Stealth]
+\node[box,minimum width=7.3cm] (c) {\textbf{Cliente}\\Carrega números, pede a soma e junta respostas};
+\node[box,below=1.1cm of c,minimum width=3cm] (b) {\textbf{Membro 2}\\Dados + tarefa};
+\node[box,left=0.45cm of b,minimum width=3cm] (a) {\textbf{Membro 1}\\Dados + tarefa};
+\node[box,right=0.45cm of b,minimum width=3cm] (d) {\textbf{Membro 3}\\Dados + tarefa};
+\draw[<->,thick,teal] (c.south)--(b.north);
+\draw[<->,thick,teal] (c.south west)--(a.north);
+\draw[<->,thick,teal] (c.south east)--(d.north);
+\draw[<->,teal] (a)--(b);\draw[<->,teal] (b)--(d);
+\end{tikzpicture}
+\vspace{0.3cm}
+\begin{itemize}
+\item JVMs separadas se comunicam por TCP.
+\item Membros guardam partições; o cliente reúne os resultados.
+\item Nesta demonstração, todos os processos usam o mesmo host.
+\end{itemize}
+\note{80 s. Cada membro mantém primários e backups de outros membros. O cliente não tem partições Hazelcast, mas tem sua entrada em memória e é o redutor central da aplicação.}
+\end{frame}
+
+\begin{frame}{Partições e cópias de segurança}
+\begin{enumerate}\setlength\itemsep{0.32cm}
+\item A chave é associada a uma partição por \textbf{hash}.
+\item Uma tabela indica o proprietário de cada partição.
+\item O mapa mantém \textbf{um backup síncrono} em outro membro.
+\item Entrada ou saída de membros provoca redistribuição.
+\end{enumerate}
+\begin{block}{Neste projeto}271 partições padrão. Um membro sozinho não tem cópia em outro membro.\end{block}
+\fonte{Hazelcast: Data Partitioning e Making Your Map Data Safe.}
+\note{75 s. Partições não são máquinas. localKeySet não conta backups como primários. Existem funções internas de coordenação da tabela; não afirmar ausência absoluta de coordenação.}
+\end{frame}
+
+\begin{frame}{Camadas e serviços}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{p{3.1cm}p{9cm}}
+\toprule\textbf{Camada}&\textbf{Responsabilidade}\\\midrule
+Aplicação&Carregar números, somar parciais e validar.\\
+Serviços&IMap e IExecutorService.\\
+Gestão do cluster&Descoberta, membros, partições e migração.\\
+Infraestrutura&JVM, RAM, threads, serialização e TCP.\\\bottomrule
+\end{tabular}
+\vspace{0.3cm}O cliente combina as respostas; os membros distribuem armazenamento e cálculo.
+\note{55 s. Relacione o código do aluno às funcionalidades da biblioteca. Configuramos descoberta e cópias, não precisamos implementá-las manualmente.}
+\end{frame}
+
+\begin{frame}{O que acontece quando o cluster muda?}
+\begin{columns}[T]
+\begin{column}{0.48\textwidth}\begin{block}{Queda de um membro}
+Backup protege os dados.\\[0.15cm]Uma tarefa pode falhar.\\[0.15cm]A próxima rodada \textbf{refaz a soma inteira}.
+\end{block}\end{column}
+\begin{column}{0.48\textwidth}\begin{block}{Entrada de um membro}
+O novo membro recebe partições.\\[0.15cm]Rodadas seguintes usam o cluster atualizado.\\[0.15cm]O cliente continua aberto.
+\end{block}\end{column}
+\end{columns}
+\vspace{0.3cm}Pode haver pausa ou rodada descartada. Não prometemos latência zero, persistência ou execução exatamente uma vez.
+\note{90 s. Uma cópia saudável protege a perda de um membro, não a queda do host. A soma só lê, então refazer não duplica incrementos globais. A entrada não pode mudar durante a soma. Fecha o bloco de arquitetura.}
+\end{frame}
+
+\begin{frame}{A aplicação: somar de 1 até N}
+\begin{block}{Exemplo pequeno}$1+2+3+\cdots+10=55$\end{block}
+\begin{enumerate}\setlength\itemsep{0.18cm}
+\item Guardar os números no mapa \texttt{numeros}.
+\item Cada membro soma suas chaves locais.
+\item O cliente soma as parcelas e confere o total.
+\end{enumerate}
+\vspace{0.15cm}
+\textbf{Origem:} exemplo \texttt{SumTask} da documentação oficial.\\
+\textbf{Conceito:} redução por soma; base para totais e estatísticas.\\
+\textbf{Validação:} $N(N+1)/2$, sem substituir o cálculo distribuído.
+\note{25 s. Adaptamos os tipos para long e adicionamos cliente/comandos. Não é all-reduce: o resultado fica no cliente.}
+\end{frame}
+
+\begin{frame}[fragile]{A tarefa: poucas linhas para entender}
+\begin{lstlisting}
+IMap<Integer, Long> numeros =
+    hazelcast.getMap("numeros");
+long soma = 0;
+for (Integer chave : numeros.localKeySet()) {
+    soma += numeros.get(chave);
+}
+return soma;
+\end{lstlisting}
+\begin{itemize}
+\item \texttt{localKeySet()}: chaves primárias deste membro.
+\item \texttt{Callable<Long>}: tarefa que retorna um número.
+\item \texttt{Serializable}: a tarefa pode ser enviada pelo Hazelcast.
+\end{itemize}
+\fonte{Trecho central adaptado de SumTask; código completo verifica valor indisponível.}
+\note{25 s. A classe tem menos de 30 linhas. HazelcastInstanceAware fornece a instância local. Cada membro soma apenas a sua parte, não o mapa inteiro.}
+\end{frame}
+
+\begin{frame}[fragile]{O cliente: juntar as respostas}
+\begin{lstlisting}
+var respostas = hz.getExecutorService("soma")
+    .submitToAllMembers(new SomaTask());
+long total = 0;
+for (var resposta : respostas.values()) {
+    total += resposta.get();
+}
+\end{lstlisting}
+\begin{itemize}
+\item Uma tarefa por membro; \texttt{get()} espera a resposta.
+\item Parcelas diferentes, mesmo total: por exemplo $12+15+28=55$.
+\item Usamos \texttt{long}: a soma até 100.000 não cabe em \texttt{int}.
+\end{itemize}
+\note{25 s. As parcelas são ilustrativas, não uma distribuição fixa. O código completo inclui prazo de espera, mensagens e validação como apoio à demonstração.}
+\end{frame}
+
+\begin{frame}{O que ocorre com entradas maiores?}
+\centering\textbf{Tempo de soma em milissegundos --- menor é melhor}\\[0.3cm]
+\renewcommand{\arraystretch}{1.4}\input{resultados.tex}
+\vspace{0.3cm}
+\begin{itemize}
+\item Mediana de 3 medições após aquecimento; 27 medições ao todo.
+\item JVMs no mesmo host; carga separada no relatório.
+\item O custo do mapa e da coordenação limita os ganhos.
+\item Um membro usa Hazelcast: não é uma referência Java pura.
+\end{itemize}
+\note{45 s. Cite os tempos para N=100000 sem extrapolar. Relatório inclui carga, intervalos e aceleração. Comparar membros com entrada fixa é escalabilidade forte.}
+\end{frame}
+
+\begin{frame}{Demonstração: cliente aberto durante as mudanças}
+\begin{enumerate}\setlength\itemsep{0.2cm}
+\item Mostrar \texttt{estado}: três membros, cópias seguras.
+\item \texttt{somar 100000}: conferir \textbf{5.000.050.000}.
+\item \texttt{acompanhar 100000}: encerrar o membro 5703.
+\item Observar resultado válido com dois membros.
+\item Iniciar membro 5704; observar resultado com três membros.
+\end{enumerate}
+\begin{block}{Evidência}Testes passaram com o mesmo processo cliente: falha, nova soma e expansão.\end{block}
+\note{180 s. Terminais já preparados. Para falha, kill -9 somente no PID do membro. A rodada pode ser descartada; a próxima refaz tudo. O teste comprova o mesmo PID de cliente durante os eventos.}
+\end{frame}
+
+\begin{frame}{Perguntas e fontes}
+\begin{itemize}\setlength\itemsep{0.15cm}
+\item Por que cada membro usa \texttt{localKeySet()}?
+\item O que o backup recupera e o que precisa ser recalculado?
+\item Por que adicionar membros não elimina todos os custos?
+\end{itemize}
+\vspace{0.3cm}\small\textbf{Fontes principais}\\[0.1cm]
+\href{https://docs.hazelcast.com/hazelcast/5.6/computing/executor-service}{Hazelcast: Java Executor Service --- exemplo SumTask}\\
+\href{https://docs.hazelcast.com/hazelcast/5.6/data-structures/backing-up-maps}{Hazelcast: Making Your Map Data Safe}\\
+\href{https://docs.hazelcast.com/hazelcast/5.0/overview/data-partitioning}{Hazelcast: Data Partitioning}\\[0.15cm]
+Casos comerciais e demais referências: \texttt{docs/REFERENCIAS.md}.\\
+Requisitos: BCC362\_TP01.pdf, opção framework.
+\note{10 minutos para perguntas efetivas do professor/colegas. Questionário específico não foi anexado. Todos os integrantes devem entender o exemplo e suas limitações.}
+\end{frame}
+\end{document}

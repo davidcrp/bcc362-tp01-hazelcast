@@ -1,0 +1,4 @@
+[127.0.0.1]:5702 primarias=91 seguro=true
+[127.0.0.1]:5701 primarias=90 seguro=true
+[127.0.0.1]:5703 primarias=90 seguro=true
+

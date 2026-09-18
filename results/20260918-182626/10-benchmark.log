@@ -1,0 +1,49 @@
+CARREGADO n=1000
+PRONTO membros=1
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=500500}
+VALIDADO n=1000 soma=500500 membros=1 ms=121.991117
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=500500}
+VALIDADO n=1000 soma=500500 membros=1 ms=105.533412
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=500500}
+VALIDADO n=1000 soma=500500 membros=1 ms=104.212632
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=500500}
+VALIDADO n=1000 soma=500500 membros=1 ms=88.166159
+CARREGADO n=10000
+PRONTO membros=1
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=50005000}
+VALIDADO n=10000 soma=50005000 membros=1 ms=817.869468
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=50005000}
+VALIDADO n=10000 soma=50005000 membros=1 ms=749.691925
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=50005000}
+VALIDADO n=10000 soma=50005000 membros=1 ms=692.005033
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=50005000}
+VALIDADO n=10000 soma=50005000 membros=1 ms=682.753467
+CARREGADO n=100000
+PRONTO membros=1
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=5000050000}
+VALIDADO n=100000 soma=5000050000 membros=1 ms=6413.671732
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=5000050000}
+VALIDADO n=100000 soma=5000050000 membros=1 ms=6188.058472
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=5000050000}
+VALIDADO n=100000 soma=5000050000 membros=1 ms=7057.554794
+SOMA_INICIADA membros=1
+PARCIAIS {[127.0.0.1]:5701=5000050000}
+VALIDADO n=100000 soma=5000050000 membros=1 ms=6432.570503
+
+Sep 18, 2026 6:26:51 PM com.hazelcast.client.impl.connection.ClientConnectionManager
+WARNING: hz.client_1 [soma-teste-45404] [5.6.0] Exception during initial connection to [127.0.0.1]:5703: com.hazelcast.core.HazelcastException: java.io.IOException: Connection refused to address /127.0.0.1:5703
+Sep 18, 2026 6:26:51 PM com.hazelcast.client.impl.connection.ClientConnectionManager
+WARNING: hz.client_1 [soma-teste-45404] [5.6.0] Exception during initial connection to [127.0.0.1]:5702: com.hazelcast.core.HazelcastException: java.io.IOException: Connection refused to address /127.0.0.1:5702
+Sep 18, 2026 6:26:51 PM com.hazelcast.client.impl.connection.ClientConnectionManager
+WARNING: hz.client_1 [soma-teste-45404] [5.6.0] Exception during initial connection to [127.0.0.1]:5704: com.hazelcast.core.HazelcastException: java.io.IOException: Connection refused to address /127.0.0.1:5704

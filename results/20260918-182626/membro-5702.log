@@ -1,0 +1,8 @@
+Sep 18, 2026 6:27:24 PM com.hazelcast.instance.impl.HazelcastInstanceFactory
+WARNING: Hazelcast is starting in a Java modular environment (Java 9 and newer) but without proper access to required Java packages. Use additional Java arguments to provide Hazelcast access to Java internal API. The internal API access is used to get the best performance results. Arguments to be used:
+ --add-modules java.se --add-exports java.base/jdk.internal.ref=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.management/sun.management=ALL-UNNAMED --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED
+MEMBRO_PRONTO porta=5702
+Sep 18, 2026 6:28:16 PM com.hazelcast.internal.server.tcp.TcpServerConnectionErrorHandler
+WARNING: [127.0.0.1]:5702 [soma-teste-45404] [5.6.0] Removing connection to endpoint [127.0.0.1]:5703 Cause => java.io.IOException {Connection refused to address /127.0.0.1:5703}, Error-Count: 5
+Sep 18, 2026 6:28:16 PM com.hazelcast.internal.cluster.impl.MembershipManager
+WARNING: [127.0.0.1]:5702 [soma-teste-45404] [5.6.0] Member [127.0.0.1]:5703 - d7b749e1-7a5d-44c4-bff4-3afff35a6e93 is suspected to be dead for reason: No connection

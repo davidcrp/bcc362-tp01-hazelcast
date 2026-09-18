@@ -1,0 +1,4 @@
+CARREGADO n=1
+
+Sep 18, 2026 4:35:07 PM com.hazelcast.client.impl.connection.ClientConnectionManager
+WARNING: hz.client_1 [soma-teste-24132] [5.6.0] Exception during initial connection to [127.0.0.1]:5702: com.hazelcast.core.HazelcastException: java.io.IOException: Connection refused to address /127.0.0.1:5702

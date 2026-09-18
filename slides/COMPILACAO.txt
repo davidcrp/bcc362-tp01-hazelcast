@@ -1,0 +1,3 @@
+Compilação aprovada: Tectonic 0.17.0, LaTeX/Beamer.
+14 slides. Fonte: apresentacao.tex + resultados.tex.
+Sem avisos de conteúdo excedendo as caixas (Overfull).

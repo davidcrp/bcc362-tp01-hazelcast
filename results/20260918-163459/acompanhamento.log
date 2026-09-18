@@ -1,0 +1,15 @@
+Sep 18, 2026 4:36:37 PM com.hazelcast.client.impl.connection.ClientConnectionManager
+WARNING: hz.client_1 [soma-teste-24132] [5.6.0] Exception during initial connection to [127.0.0.1]:5704: com.hazelcast.core.HazelcastException: java.io.IOException: Connection refused to address /127.0.0.1:5704
+SOMA_INICIADA membros=3
+PARCIAIS {[127.0.0.1]:5701=1659199909, [127.0.0.1]:5702=1680115063, [127.0.0.1]:5703=1660735028}
+VALIDADO n=100000 soma=5000050000 membros=3 ms=2672.398951
+SOMA_INICIADA membros=3
+RODADA_INTERROMPIDA ExecutionException; próxima rodada refaz a soma inteira
+SOMA_INICIADA membros=2
+PARCIAIS {[127.0.0.1]:5701=2473382205, [127.0.0.1]:5702=2526667795}
+VALIDADO n=100000 soma=5000050000 membros=2 ms=3126.299812
+SOMA_INICIADA membros=2
+RODADA_INTERROMPIDA IllegalStateException; próxima rodada refaz a soma inteira
+SOMA_INICIADA membros=3
+PARCIAIS {[127.0.0.1]:5701=1659199909, [127.0.0.1]:5702=1672211549, [127.0.0.1]:5704=1668638542}
+VALIDADO n=100000 soma=5000050000 membros=3 ms=2725.728337

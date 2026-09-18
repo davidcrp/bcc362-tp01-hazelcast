@@ -1,0 +1,29 @@
+x-common: &common
+  build: .
+  image: bcc362-hazelcast:local
+  environment:
+    HZ_CLUSTER: bcc362-docker
+    HZ_MEMBERS: member1:5701,member2:5701,member3:5701
+  networks: [tp01]
+  mem_limit: 1g
+services:
+  member1:
+    <<: *common
+    command: [membro, '5701']
+  member2:
+    <<: *common
+    command: [membro, '5701']
+  member3:
+    <<: *common
+    command: [membro, '5701']
+  member4:
+    <<: *common
+    profiles: [expansion]
+    command: [membro, '5701']
+  client:
+    <<: *common
+    profiles: [tools]
+    volumes: ['./results:/app/results']
+    command: [estado]
+networks:
+  tp01:

@@ -1,0 +1,6 @@
+SOMA_INICIADA membros=1
+
+Exception in thread "main" java.lang.IllegalStateException: Cluster mudou ou soma divergiu; repita após estabilizar.
+	at br.edu.ufop.Cliente.somar(Cliente.java:46)
+	at br.edu.ufop.Cliente.executar(Cliente.java:107)
+	at br.edu.ufop.Main.main(Main.java:46)

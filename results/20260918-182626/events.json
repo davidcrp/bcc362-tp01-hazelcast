@@ -1,0 +1,238 @@
+[
+  {
+    "time": "2026-09-18T18:26:26.475196",
+    "kind": "MEMBRO_INICIADO",
+    "port": 5701,
+    "pid": 45424
+  },
+  {
+    "time": "2026-09-18T18:26:30.189117",
+    "kind": "COMANDO_OK",
+    "args": [
+      "pronto",
+      1
+    ],
+    "log": "01-pronto.log"
+  },
+  {
+    "time": "2026-09-18T18:26:32.108813",
+    "kind": "COMANDO_OK",
+    "args": [
+      "carregar",
+      0
+    ],
+    "log": "02-carregar.log"
+  },
+  {
+    "time": "2026-09-18T18:26:34.398475",
+    "kind": "COMANDO_OK",
+    "args": [
+      "somar",
+      0
+    ],
+    "log": "03-somar.log"
+  },
+  {
+    "time": "2026-09-18T18:26:36.538718",
+    "kind": "COMANDO_OK",
+    "args": [
+      "carregar",
+      1
+    ],
+    "log": "04-carregar.log"
+  },
+  {
+    "time": "2026-09-18T18:26:41.629648",
+    "kind": "COMANDO_OK",
+    "args": [
+      "somar",
+      1
+    ],
+    "log": "05-somar.log"
+  },
+  {
+    "time": "2026-09-18T18:26:43.421400",
+    "kind": "COMANDO_OK",
+    "args": [
+      "carregar",
+      10
+    ],
+    "log": "06-carregar.log"
+  },
+  {
+    "time": "2026-09-18T18:26:45.221919",
+    "kind": "COMANDO_OK",
+    "args": [
+      "somar",
+      10
+    ],
+    "log": "07-somar.log"
+  },
+  {
+    "time": "2026-09-18T18:26:47.701598",
+    "kind": "ERRO_ESPERADO_CONFIRMADO",
+    "args": [
+      "somar",
+      11
+    ],
+    "log": "08-somar.log"
+  },
+  {
+    "time": "2026-09-18T18:26:49.643517",
+    "kind": "ERRO_ESPERADO_CONFIRMADO",
+    "args": [
+      "carregar",
+      -1
+    ],
+    "log": "09-carregar.log"
+  },
+  {
+    "time": "2026-09-18T18:27:24.215745",
+    "kind": "COMANDO_OK",
+    "args": [
+      "benchmark",
+      "/mnt/c/Users/mathe/OneDrive/Documentos/ufop/SD/hazelcast-tp01/results/20260918-182626/benchmark.csv"
+    ],
+    "log": "10-benchmark.log"
+  },
+  {
+    "time": "2026-09-18T18:27:24.220831",
+    "kind": "MEMBRO_INICIADO",
+    "port": 5702,
+    "pid": 46786
+  },
+  {
+    "time": "2026-09-18T18:27:27.723764",
+    "kind": "COMANDO_OK",
+    "args": [
+      "pronto",
+      2
+    ],
+    "log": "11-pronto.log"
+  },
+  {
+    "time": "2026-09-18T18:27:44.112796",
+    "kind": "COMANDO_OK",
+    "args": [
+      "benchmark",
+      "/mnt/c/Users/mathe/OneDrive/Documentos/ufop/SD/hazelcast-tp01/results/20260918-182626/benchmark.csv"
+    ],
+    "log": "12-benchmark.log"
+  },
+  {
+    "time": "2026-09-18T18:27:44.118665",
+    "kind": "MEMBRO_INICIADO",
+    "port": 5703,
+    "pid": 47852
+  },
+  {
+    "time": "2026-09-18T18:27:47.523195",
+    "kind": "COMANDO_OK",
+    "args": [
+      "pronto",
+      3
+    ],
+    "log": "13-pronto.log"
+  },
+  {
+    "time": "2026-09-18T18:28:04.796296",
+    "kind": "COMANDO_OK",
+    "args": [
+      "benchmark",
+      "/mnt/c/Users/mathe/OneDrive/Documentos/ufop/SD/hazelcast-tp01/results/20260918-182626/benchmark.csv"
+    ],
+    "log": "14-benchmark.log"
+  },
+  {
+    "time": "2026-09-18T18:28:06.786277",
+    "kind": "COMANDO_OK",
+    "args": [
+      "carregar",
+      100000
+    ],
+    "log": "15-carregar.log"
+  },
+  {
+    "time": "2026-09-18T18:28:08.677999",
+    "kind": "COMANDO_OK",
+    "args": [
+      "pronto",
+      3
+    ],
+    "log": "16-pronto.log"
+  },
+  {
+    "time": "2026-09-18T18:28:10.532732",
+    "kind": "COMANDO_OK",
+    "args": [
+      "estado"
+    ],
+    "log": "17-estado.log"
+  },
+  {
+    "time": "2026-09-18T18:28:16.642033",
+    "kind": "FALHA_ABRUPTA",
+    "port": 5703,
+    "pid": 47852,
+    "cliente_pid": 49305
+  },
+  {
+    "time": "2026-09-18T18:28:19.051000",
+    "kind": "COMANDO_OK",
+    "args": [
+      "pronto",
+      2
+    ],
+    "log": "18-pronto.log"
+  },
+  {
+    "time": "2026-09-18T18:28:29.372329",
+    "kind": "COMANDO_OK",
+    "args": [
+      "estado"
+    ],
+    "log": "19-estado.log"
+  },
+  {
+    "time": "2026-09-18T18:28:29.375319",
+    "kind": "RECUPERACAO_VALIDADA",
+    "cliente_pid": 49305
+  },
+  {
+    "time": "2026-09-18T18:28:29.386998",
+    "kind": "MEMBRO_INICIADO",
+    "port": 5704,
+    "pid": 49483
+  },
+  {
+    "time": "2026-09-18T18:28:29.393728",
+    "kind": "EXPANSAO_DURANTE_ACOMPANHAMENTO",
+    "cliente_pid": 49305
+  },
+  {
+    "time": "2026-09-18T18:28:33.760485",
+    "kind": "COMANDO_OK",
+    "args": [
+      "pronto",
+      3
+    ],
+    "log": "20-pronto.log"
+  },
+  {
+    "time": "2026-09-18T18:28:40.439387",
+    "kind": "COMANDO_OK",
+    "args": [
+      "estado"
+    ],
+    "log": "21-estado.log"
+  },
+  {
+    "time": "2026-09-18T18:28:40.444630",
+    "kind": "EXPANSAO_VALIDADA",
+    "cliente_pid": 49305
+  },
+  {
+    "time": "2026-09-18T18:28:40.822368",
+    "kind": "ALL_TESTS_PASSED"
+  }
+]

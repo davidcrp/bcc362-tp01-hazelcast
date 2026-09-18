@@ -1,0 +1,104 @@
+{
+  "run": "20260918-182626",
+  "rows": [
+    {
+      "n": 1000,
+      "membros": 1,
+      "carga_ms": 112.686,
+      "soma_ms": 104.213,
+      "min_ms": 88.166,
+      "max_ms": 105.533,
+      "total_ms": 216.899,
+      "speedup": 1.0,
+      "eficiencia": 1.0
+    },
+    {
+      "n": 1000,
+      "membros": 2,
+      "carga_ms": 303.777,
+      "soma_ms": 68.352,
+      "min_ms": 65.623,
+      "max_ms": 69.501,
+      "total_ms": 372.129,
+      "speedup": 1.5246518024344569,
+      "eficiencia": 0.7623259012172284
+    },
+    {
+      "n": 1000,
+      "membros": 3,
+      "carga_ms": 214.166,
+      "soma_ms": 40.469,
+      "min_ms": 39.798,
+      "max_ms": 43.008,
+      "total_ms": 254.636,
+      "speedup": 2.5751315821987197,
+      "eficiencia": 0.8583771940662399
+    },
+    {
+      "n": 10000,
+      "membros": 1,
+      "carga_ms": 101.808,
+      "soma_ms": 692.005,
+      "min_ms": 682.753,
+      "max_ms": 749.692,
+      "total_ms": 793.813,
+      "speedup": 1.0,
+      "eficiencia": 1.0
+    },
+    {
+      "n": 10000,
+      "membros": 2,
+      "carga_ms": 160.336,
+      "soma_ms": 347.203,
+      "min_ms": 333.503,
+      "max_ms": 389.599,
+      "total_ms": 507.539,
+      "speedup": 1.9930847371710498,
+      "eficiencia": 0.9965423685855249
+    },
+    {
+      "n": 10000,
+      "membros": 3,
+      "carga_ms": 133.448,
+      "soma_ms": 290.334,
+      "min_ms": 274.533,
+      "max_ms": 327.707,
+      "total_ms": 423.782,
+      "speedup": 2.383479027602692,
+      "eficiencia": 0.7944930092008974
+    },
+    {
+      "n": 100000,
+      "membros": 1,
+      "carga_ms": 227.63,
+      "soma_ms": 6432.571,
+      "min_ms": 6188.058,
+      "max_ms": 7057.555,
+      "total_ms": 6660.201,
+      "speedup": 1.0,
+      "eficiencia": 1.0
+    },
+    {
+      "n": 100000,
+      "membros": 2,
+      "carga_ms": 230.227,
+      "soma_ms": 2921.738,
+      "min_ms": 2700.129,
+      "max_ms": 3237.696,
+      "total_ms": 3151.965,
+      "speedup": 2.2016248547953308,
+      "eficiencia": 1.1008124273976654
+    },
+    {
+      "n": 100000,
+      "membros": 3,
+      "carga_ms": 207.843,
+      "soma_ms": 2537.033,
+      "min_ms": 2455.893,
+      "max_ms": 3014.417,
+      "total_ms": 2744.876,
+      "speedup": 2.5354699761493054,
+      "eficiencia": 0.8451566587164351
+    }
+  ]
+}
