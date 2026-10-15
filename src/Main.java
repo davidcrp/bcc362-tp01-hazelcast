@@ -3,7 +3,6 @@ import com.hazelcast.core.*;
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 
-/** Configuração do laboratório. Comece a leitura do algoritmo em SomaTask.java. */
 public class Main {
     static final String CLUSTER = System.getenv().getOrDefault("HZ_CLUSTER", "tp01-soma");
     static final String SEEDS = System.getenv().getOrDefault("HZ_MEMBERS", "127.0.0.1:5701,127.0.0.1:5702,127.0.0.1:5703,127.0.0.1:5704");

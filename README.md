@@ -1,5 +1,10 @@
 # TP01 — Primeiro contato com Hazelcast
 
+> Trabalho prático em grupo da disciplina **BCC362 — Sistemas Distribuídos** (Ciência da Computação, UFOP).
+> Repositório original: [cardosoAM/bcc362-tp01-hazelcast](https://github.com/cardosoAM/bcc362-tp01-hazelcast).
+
+**Stack:** Java · Hazelcast 5.6 (IMap, IExecutorService) · Maven · Python (automação dos experimentos) · LaTeX/Beamer
+
 **Aplicação: somar os números de 1 até N usando um cluster Hazelcast.**
 
 Adaptação do exemplo **SumTask**, presente na seção “Implementing a Callable Task” da [documentação oficial do Hazelcast 5.6](https://docs.hazelcast.com/hazelcast/5.6/computing/executor-service). A ideia do exemplo foi preservada: cada membro soma os valores das suas chaves locais. O cliente junta as somas parciais.
@@ -20,7 +25,7 @@ Não é necessário estudar automação de testes ou detalhes do compilador para
 ## Executar os testes (Ubuntu/WSL)
 
 ```bash
-cd /mnt/c/Users/mathe/OneDrive/Documentos/ufop/SD/hazelcast-tp01
+cd bcc362-tp01-hazelcast
 bash scripts/build.sh
 python3 scripts/experiments.py
 python3 scripts/summarize.py
@@ -38,7 +43,7 @@ Preencha nomes/matrículas (até 3 alunos) em `slides/apresentacao.tex`. As perg
 ## Obter pelo GitHub
 
 ```bash
-git clone https://github.com/cardosoAM/bcc362-tp01-hazelcast.git
+git clone https://github.com/davidcrp/bcc362-tp01-hazelcast.git
 cd bcc362-tp01-hazelcast
 bash scripts/build.sh
 ```

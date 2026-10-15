@@ -7,18 +7,18 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Cliente {
-    // 1. Coloca os números de 1 até N no mapa distribuído.
+    // Coloca os números de 1 até N no mapa distribuído.
     static void carregar(HazelcastInstance hz, int n) {
         if (n < 0) throw new IllegalArgumentException("N deve ser não negativo");
         IMap<Integer, Long> mapa = hz.getMap("numeros");
-        mapa.clear(); // Uma entrada de cada vez; não carregar durante uma soma.
+        mapa.clear(); // Uma entrada de cada vez; não carregar durante uma soma
         Map<Integer, Long> entrada = new HashMap<>();
         for (int i = 1; i <= n; i++) entrada.put(i, (long) i);
         mapa.putAll(entrada);
         System.out.println("CARREGADO n=" + n);
     }
 
-    // 2. Executa uma SomaTask em cada membro e soma as respostas.
+    // Executa uma SomaTask em cada membro e soma as respostas.
     static double somar(HazelcastInstance hz, int n) throws Exception {
         if (n < 0) throw new IllegalArgumentException("N deve ser não negativo");
         var membrosAntes = new HashSet<>(hz.getCluster().getMembers());

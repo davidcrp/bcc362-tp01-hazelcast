@@ -32,7 +32,7 @@ A senha Linux não aparece ao digitar. Essa instalação pode depender de você 
 No Ubuntu:
 
 ```bash
-cd /mnt/c/Users/mathe/OneDrive/Documentos/ufop/SD/hazelcast-tp01
+cd bcc362-tp01-hazelcast
 bash scripts/build.sh
 ```
 
