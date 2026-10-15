@@ -1,7 +1,7 @@
 # TP01 — Primeiro contato com Hazelcast
 
 > Trabalho prático em grupo da disciplina **BCC362 — Sistemas Distribuídos** (Ciência da Computação, UFOP).
-> Repositório original: [cardosoAM/bcc362-tp01-hazelcast](https://github.com/cardosoAM/bcc362-tp01-hazelcast).
+> Desenvolvido em grupo; o histórico de commits preserva a autoria de cada integrante.
 
 **Stack:** Java · Hazelcast 5.6 (IMap, IExecutorService) · Maven · Python (automação dos experimentos) · LaTeX/Beamer
 
